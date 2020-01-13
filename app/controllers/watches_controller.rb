@@ -1,7 +1,4 @@
 class WatchesController < ApplicationController
-  def new
-  end
-
   def create
   end
 
@@ -15,8 +12,5 @@ class WatchesController < ApplicationController
   end
 
   def destroy
-  end
-
-  def index
   end
 end

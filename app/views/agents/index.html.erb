@@ -1,2 +1,26 @@
-<h1>Agents#index</h1>
-<p>Find me in app/views/agents/index.html.erb</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="test">
+  <% @agent.each do |x| %>
+  <div class="inline">
+    <div class="agentborder">
+      <a href="<%= agent_path(x.id) %>"><img class="agentfill" src= "<%= x.image %>"></a><br>
+      <div class="align-left">
+      <%= x.name %><br>
+      <%= x.company %><br>
+      Email: <%= x.email %><br>
+      Mobile: <%= x.phone %><br>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  </div>
+</body>
+</html>

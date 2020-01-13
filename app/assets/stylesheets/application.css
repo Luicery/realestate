@@ -13,3 +13,31 @@
  *= require_tree .
  *= require_self
  */
+ @import url('https://fonts.googleapis.com/css?family=Gelasio&display=swap');
+* {
+  margin:0;
+  font-family: Gelasio, sans-serif;
+}
+#title {
+  margin-left:20px;
+  padding:5px;
+  font-size:50px;
+}
+#hehe {
+  font-size:10px;
+}
+span {
+  margin:20px;
+}
+header {
+  background-color:rgba(238, 106, 150, 0.83);
+  color:white;
+}
+nav {
+  padding:10px;
+  text-align:center;
+}
+.header {
+  text-decoration: none;
+  color:white;
+}

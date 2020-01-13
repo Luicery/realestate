@@ -1,3 +1,67 @@
 // Place all the styles related to the Properties controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.logo {
+  width:20px;
+  height:20px;
+  margin:3px;
+}
+.slide {
+  display:inline;
+}
+.slide {
+  width:50%;
+}
+.content {
+  margin-left:200px;
+  margin-top:0px;
+  margin-right:0px;
+  width: 650px;
+}
+#details {
+  margin: 20px;
+  margin-left:150px;
+  margin-right: 150px;
+}
+#agent {
+  margin-left: 70px;
+  margin-right:10px;
+  margin-bottom: 30px;
+  text-align:left;
+  width:250px;
+  vertical-align:top;
+}
+.prelude {
+  width:100%;
+  height:200px;
+  overflow:hidden;
+  transition-duration:1s;
+}
+.border {
+  margin:10px;
+  border: 2px solid grey;
+  width: 300px;
+  overflow:hidden;
+  border-radius:10px;
+  font-weight:bold;
+}
+.inline {
+  display:inline-block;
+}
+.test {
+  text-align:center;
+}
+.align-left{
+  text-align: left;
+  margin-top:3px;
+  margin-left:1px;
+  margin-right:1px;
+}
+.prelude:hover {
+  transform: scale(1.1);
+  transition-duration:2s;
+}
+.picture {
+  width: 175px;
+  height: 250px;
+}

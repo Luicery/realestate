@@ -6,6 +6,8 @@ class PropertiesController < ApplicationController
   end
 
   def show
+    @property = Property.find params[:id]
+    @agent = @property.agents.first
   end
 
   def edit
@@ -18,5 +20,6 @@ class PropertiesController < ApplicationController
   end
 
   def index
+    @property = Property.all
   end
 end

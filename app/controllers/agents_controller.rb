@@ -18,5 +18,6 @@ class AgentsController < ApplicationController
   end
 
   def index
+    @agent = Agent.all
   end
 end

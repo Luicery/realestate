@@ -1,2 +1,23 @@
-<h1>Session#new</h1>
-<p>Find me in app/views/session/new.html.erb</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h2> Login </h2>
+  <!-- this will only display when flash is true the one below that will do the same but
+  its better the use the one here since it can have effects on it like spacing -->
+  <% if flash[:error] %>
+    <br> <%= flash[:error] %><br>
+  <% end %>
+  <%= form_tag login_path do  %>
+    <%= label_tag :email %><%= email_field_tag :email %> <br>
+    <%= label_tag :password %><%= password_field_tag :password %><br>
+    <%= submit_tag "Login" %><br>
+    <%# <%= flash[:error] %>
+  <% end %>
+</body>
+</html>
