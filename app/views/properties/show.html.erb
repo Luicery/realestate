@@ -12,12 +12,16 @@
       <% @property.images.each do |x| %><img class="slide" src="<%= x.image %>"><% end %>
     </div>
     <div id="details">
-    <h2><%= @property.title %></h2>
-    <h3><%= @property.address %><br>
-    <img class="logo" src="https://c7.uihere.com/icons/990/543/695/bed-2bcc00ee5d9ffb499c5f90be3fc68ec0.png"><%= @property.bedrooms %>
-    <img class="logo" src="https://www.shareicon.net/data/512x512/2016/10/22/846720_clean_512x512.png"><%= @property.bathrooms %>
-    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Car_with_Driver-Silhouette.svg/1221px-Car_with_Driver-Silhouette.svg.png"><%= @property.parking %>
-    <img class="logo" src="https://static.thenounproject.com/png/560015-200.png"><%= @property.area %>m²</h3><br><hr><br>
+      <span id="Watchlist"><h3><%= link_to "Add to Watchlist", ""%></h3></span>
+      <div id="Width_manipulate">
+        <h2><%= @property.title %></h2>
+        <h3><%= @property.address %><br>
+        <img class="logo" src="https://c7.uihere.com/icons/990/543/695/bed-2bcc00ee5d9ffb499c5f90be3fc68ec0.png"><%= @property.bedrooms %>
+        <img class="logo" src="https://www.shareicon.net/data/512x512/2016/10/22/846720_clean_512x512.png"><%= @property.bathrooms %>
+        <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Car_with_Driver-Silhouette.svg/1221px-Car_with_Driver-Silhouette.svg.png"><%= @property.parking %>
+        <img class="logo" src="https://static.thenounproject.com/png/560015-200.png"><%= @property.area %>m²</h3>
+      </div>
+      <br><hr><br>
     </div>
     <div class="inline content"><%= @property.description %></div>
     <div id="agent" class="inline">

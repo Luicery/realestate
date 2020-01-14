@@ -14,13 +14,18 @@
       <h1 id="title"><a class="header" href="/"> TheFakeDomain </a><span id="hehe">You picked the wrong site fool </span></h1>
       <hr>
       <nav>
+
         <h3><span><%= link_to "Find Agents", agents_path, :class => "header" %></span>
-        <span><%= link_to "Watchlist", watches_path, :class => "header" %></span>
+        <%# <!-- <span><%= link_to "Watchlist", watch_path(@current_user.id), :class => "header" %></span> --> %>
         <span><%= link_to "For Sale", properties_path, :class => "header" %></span>
-        <span><%= link_to "Login", login_path, :class => "header" %></span>
-        <span><%= link_to "Sign Up", new_user_path, :class => "header" %></span>
-        <span><%= link_to "Sign Out", login_path, method: "delete", :class => "header" %></span>
-        <span><%= link_to "Placeholder", "", :class => "header" %></span></h3>
+        <span><%= link_to "Placeholder", "", :class => "header" %></span>
+        <% if @current_user.present? %>
+          Welcome, <%= @current_user.username %>
+          <span><%= link_to "Logout", login_path, method: "delete", :class => "header" %></span>
+        <% else %>
+          <span><%= link_to "Login", login_path, :class => "header" %></span>
+          <span><%= link_to "Sign Up", new_user_path, :class => "header" %></span>
+        <% end %></h3>
       </nav>
     </header>
     <%= yield %>

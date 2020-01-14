@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_13_091436) do
+ActiveRecord::Schema.define(version: 2020_01_14_021636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,16 +23,12 @@ ActiveRecord::Schema.define(version: 2020_01_13_091436) do
     t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "password_digest"
   end
 
   create_table "agents_properties", id: false, force: :cascade do |t|
     t.bigint "agent_id", null: false
     t.bigint "property_id", null: false
-  end
-
-  create_table "agents_watches", id: false, force: :cascade do |t|
-    t.bigint "agent_id", null: false
-    t.bigint "watch_id", null: false
   end
 
   create_table "images", force: :cascade do |t|
@@ -67,16 +63,14 @@ ActiveRecord::Schema.define(version: 2020_01_13_091436) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "users_watches", id: false, force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "watch_id", null: false
+    t.text "password_digest"
   end
 
   create_table "watches", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "agent_id"
   end
 
 end
