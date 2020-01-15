@@ -33,10 +33,7 @@ property2.images << image3
 property3.images << image4
 property4.images << image5
 Watch.destroy_all
-watch1 = Watch.create
-watch2 = Watch.create
+watch1 = Watch.create agent_id:agent1.id
+watch2 = Watch.create user_id:user1.id
 watch1.properties << property1 << property2
 watch2.properties << property3 << property4
-
-agent1.watch << watch1
-user1.watch << watch2
