@@ -37,5 +37,6 @@ watch1 = Watch.create
 watch2 = Watch.create
 watch1.properties << property1 << property2
 watch2.properties << property3 << property4
+
 agent1.watch << watch1
 user1.watch << watch2

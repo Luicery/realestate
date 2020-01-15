@@ -3,10 +3,13 @@ class ApplicationController < ActionController::Base
   def fetch_user
     if session[:user_id].present?
       @current_user = User.find_by id: session[:user_id]
+    else if session[:agent_id].present?
+      @current_user = Agent.find_by id: session[:agent_id]
     end
     #delete the session (clear the id from the session) if ID did not return a valid user
     unless @current_user.present?
       session[:user_id] = nil
+      session[:agent_id] = nil
     end
   end
   def check_if_logged_in
@@ -15,4 +18,5 @@ class ApplicationController < ActionController::Base
   def check_if_admin
     redirect_to login_path unless @current_user.present? && @current_user.admin?
   end
+end
 end
