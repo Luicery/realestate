@@ -14,6 +14,29 @@
     </ul>
       <% end %>
   <% end %>
-  <%= render partial: "form" %>
+  <style>
+  .grid {
+  display:grid;
+  grid-row-gap: 5px;
+  grid-template-columns: auto auto;
+  margin-left: 20px;
+  width:30%;
+  }
+  .margin {
+    margin-top: 10px;
+  }
+  </style>
+  <div class="margin">
+  <%= form_for @user do |f| %>
+    <div class="grid"><%= f.label "Name: " %><%= f.text_field :name %></div><br>
+    <div class="grid"><%= f.label "Email: " %><%= f.email_field :email %></div><br>
+    <div class="grid"><%= f.label "Phone: " %><%= f.text_field :phone %></div><br>
+    <div class="grid"><%= f.label :password %><%= f.password_field :password %></div><br>
+    <div class="grid"><%= f.label :password_confirmation %><%= f.password_field :password_confirmation %></div><br>
+    <br>
+    Already have an account? <%= link_to "Login", login_path %><br>
+    <%= f.submit %><br>
+  <% end %>
+  </div>
 </body>
 </html>

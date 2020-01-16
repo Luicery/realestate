@@ -5,23 +5,30 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
     <header>
-      <h1 id="title"><a class="header" href="/"> TheFakeDomain </a><span id="hehe">You picked the wrong site fool </span></h1>
+      <h1 id="title"><a class="header" href="/"> TheFakeDomain </a><span id="hehe">You picked the wrong site fool </span>
+      </h1><span>
+      <% if @current_user.present? && @current_user %>
+      <div id="welcome">Welcome, <%= @current_user.name %></div>
+      <% end %></span>
       <hr>
       <nav>
-
         <h3><span><%= link_to "Find Agents", agents_path, :class => "header" %></span>
         <span><%= link_to "For Sale", properties_path, :class => "header" %></span>
         <span><%= link_to "For Rent", rents_path, :class => "header" %></span>
+        <% if session[:agent_id].present? %>
+          <span><%= link_to "Create a Listing", new_property_path, :class => "header" %></span>
+          <span><%= link_to "Your Listings", agent_path(@current_user.id), :class => "header" %></span>
+
+        <% end %>
         <% if @current_user.present? && @current_user %>
         <span><%= link_to "Watchlist", watch_path(@current_user.id), :class => "header" %></span>
-          Welcome, <%= @current_user.name %>
-          <span><%= link_to "Logout", login_path, method: "delete", :class => "header" %></span>
+        <span><%= link_to "Logout", login_path, method: "delete", :class => "header" %></span>
         <% else %>
           <span><%= link_to "Login", login_path, :class => "header" %></span>
           <span><%= link_to "Sign Up", new_user_path, :class => "header" %></span>

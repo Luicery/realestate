@@ -1,2 +1,32 @@
-<h1>Rents#show</h1>
-<p>Find me in app/views/rents/show.html.erb</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function initMap() {
+      geocoder = new google.maps.Geocoder();
+      var input =  "<%= @property.address %>";
+      var address = "<%= @property.address %>";
+      geocoder.geocode( { 'address': address}, function(results, status) {
+      if (status == 'OK') {
+        map.setCenter(results[0].geometry.location);
+        var marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+        });
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
+      var map = new google.maps.Map(document.getElementById('map'), {zoom: 20, center: {lat: -25.344, lng: 131.036}});
+    }
+  </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkebnqIrf98MzWYEb0T2T0jd13MrkQNw4&callback=initMap"
+  type="text/javascript"></script>
+</body>
+</html>

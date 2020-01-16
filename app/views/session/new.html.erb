@@ -7,18 +7,32 @@
   <title>Document</title>
 </head>
 <body>
-  <h2> Login </h2>
+  <style>
+  .grid {
+  display:grid;
+  grid-row-gap: 5px;
+  grid-template-columns: auto auto;
+  margin-left: 20px;
+  width:30%;
+  }
+  .margin {
+    margin-top: 10px;
+  }
+  .left-margin {
+    margin-left: 20px;
+  }
+  </style>
+  <div class="left-margin"><h2> Login </h2></div>
   <!-- this will only display when flash is true the one below that will do the same but
   its better the use the one here since it can have effects on it like spacing -->
   <% if flash[:error] %>
-    <br> <%= flash[:error] %><br>
+    <br> <div class="grid"><%= flash[:error] %><br>
   <% end %>
   <%= form_tag login_path do  %>
-    <%= label_tag :email %><%= email_field_tag :email %> <br>
-    <%= label_tag :password %><%= password_field_tag :password %><br><br>
-    Don't have an account yet? <%= link_to "Sign up", new_user_path %><br>
-    <%= submit_tag "Login" %><br>
-    <%# <%= flash[:error] %>
+    <div class="grid">  <%= label_tag :email %><%= email_field_tag :email %></div>
+    <div class="grid"><%= label_tag :password %><%= password_field_tag :password %></div><br>
+    <div class="left-margin">Don't have an account yet? <%= link_to "Sign up", new_user_path %></div>
+    <div class="grid"><%= submit_tag "Login" %></div><br>
   <% end %>
 </body>
 </html>

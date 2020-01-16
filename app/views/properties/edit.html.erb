@@ -1,2 +1,24 @@
-<h1>Properties#edit</h1>
-<p>Find me in app/views/properties/edit.html.erb</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+  .grid {
+  display:grid;
+  grid-row-gap: 5px;
+  grid-template-columns: auto auto;
+  margin-left: 20px;
+  width:30%;
+  }
+  .margin {
+    margin-top: 10px;
+  }
+  </style>
+  <%= render partial: "form" %>
+</body>
+</html>

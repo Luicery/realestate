@@ -1,2 +1,38 @@
-<h1>Properties#new</h1>
-<p>Find me in app/views/properties/new.html.erb</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+  .grid {
+  display:grid;
+  grid-row-gap: 5px;
+  grid-template-columns: auto auto;
+  margin-left: 20px;
+  width:30%;
+  }
+  .margin {
+    margin-top: 10px;
+  }
+  </style>
+  <div class="margin"
+  <%= form_for @property do |f| %>
+    <div class="grid"><%= f.label "Title: " %><%= f.text_field :title %></div><br>
+    <div class="grid"><%= f.label "Address: " %><%= f.text_field :address %></div><br>
+    <div class="grid"><%= f.label "Price: " %><%= f.text_field :price %></div><br>
+    <div class="grid"><%= f.label "Bedrooms: " %><%= f.number_field :bedrooms %></div><br>
+    <div class="grid"><%= f.label "Bathrooms: " %><%= f.number_field :bathrooms %></div><br>
+    <div class="grid"><%= f.label "Parking: " %><%= f.number_field :parking %></div><br>
+    <div class="grid"><%= f.label "Area(m²): " %><%= f.number_field :area %></div><br>
+    <div class="grid"><%= f.label "Description: " %><%= f.text_field :description %></div><br>
+    <div class="grid"><%= f.label "Image Link: " %><%= f.text_field :images %></div>
+    <br>
+    <div class="grid"><%= f.submit%><br>
+  <% end %>
+  </div>
+</body>
+</html>

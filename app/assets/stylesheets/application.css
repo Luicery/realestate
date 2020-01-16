@@ -20,8 +20,9 @@
 }
 #title {
   margin-left:20px;
-  padding:5px;
+  padding:0px;
   font-size:50px;
+  margin-bottom: 0px;
 }
 #hehe {
   font-size:10px;
@@ -34,10 +35,14 @@ header {
   color:white;
 }
 nav {
-  padding:10px;
+  padding:8px;
   text-align:right;
 }
 .header {
   text-decoration: none;
   color:white;
+}
+#welcome {
+  font-size: 16px;
+  display:inline;
 }

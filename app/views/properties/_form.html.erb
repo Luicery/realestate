@@ -1,0 +1,15 @@
+<div class="margin"
+<%= form_for @property do |f| %>
+  <div class="grid"><%= f.label "Title: " %><%= f.text_field :title %></div><br>
+  <div class="grid"><%= f.label "Address: " %><%= f.text_field :address %></div><br>
+  <div class="grid"><%= f.label "Price: " %><%= f.text_field :price %></div><br>
+  <div class="grid"><%= f.label "Bedrooms: " %><%= f.number_field :bedrooms %></div><br>
+  <div class="grid"><%= f.label "Bathrooms: " %><%= f.number_field :bathrooms %></div><br>
+  <div class="grid"><%= f.label "Parking: " %><%= f.number_field :parking %></div><br>
+  <div class="grid"><%= f.label "Area(m²): " %><%= f.number_field :area %></div><br>
+  <div class="grid"><%= f.label "Description: " %><%= f.text_field :description %></div><br>
+  <div class="grid"><%= f.label "Image Link: " %><%= f.text_field :images %></div>
+  <br>
+  <div class="grid"><%= f.submit%><br>
+<% end %>
+</div>
