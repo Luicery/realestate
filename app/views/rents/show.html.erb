@@ -7,11 +7,60 @@
   <title>Document</title>
 </head>
 <body>
+  <div id="main">
+    <div id="details">
+      <div class="slideshow">
+        <% @rent.imagerents.each do |x| %><img class="slide" src="<%= x.image %>"><% end %>
+        <a class="next hvr-icon-forward" onclick="nextSlide(1)">&#10095;</a>
+        <a class="prev" onclick="nextSlide(-1)">&#10094;</a>
+      </div>
+      <span id="Watchlist">
+        <% if @current_user.present? == false %>
+          <%= link_to "Add to Watchlist", watch_path(@rent.id), method: "patch",  :id => "WatchlistLook"%>
+        <% else %>
+          <% if (@current_user.watch.properties.find_by id:params[:id]).present? == false %>
+            <%= link_to "Add to Watchlist", watch_path(@rent.id), method: "patch",  :id => "WatchlistLook"%>
+          <% else %>
+            <%= link_to "Remove from Watchlist", watch_path(@rent.id), method: "delete",  :id => "WatchlistLook"%>
+          <% end %>
+        <% end %>
+        <% if @current_user.present? == false %>
+          <% if @current_user.present? == true && (@rent.agents.find @current_user.id).present? == true %>
+            <%= link_to "Edit Property", edit_rent_path, :id => "WatchlistLook" %>
+          <% end %>
+          <% if @current_user.present? == true && (@property.agents.find @current_user.id).present? == true %>
+            <%= link_to "Remove Property", rent_path, method:"delete", :id => "WatchlistLook" %>
+          <% end %>
+        <% end %>
+      </span>
+      <div id="Width_manipulate">
+        <h2><%= @rent.title %></h2>
+        <h3><%= @rent.address %><br>
+        <img class="logo" src="https://c7.uihere.com/icons/990/543/695/bed-2bcc00ee5d9ffb499c5f90be3fc68ec0.png"><%= @rent.bedrooms %>
+        <img class="logo" src="https://www.shareicon.net/data/512x512/2016/10/22/846720_clean_512x512.png"><%= @rent.bathrooms %>
+        <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Car_with_Driver-Silhouette.svg/1221px-Car_with_Driver-Silhouette.svg.png"><%= @rent.parking %>
+        <img class="logo" src="https://static.thenounproject.com/png/560015-200.png"><%= @rent.area %>m²</h3>
+      </div>
+      <br><hr><br>
+    </div>
+    <div class="inline content"><%= @rent.description %></div>
+    <div id="agent" class="inline">
+      <h3><%= @agent.name %><br></h3>
+      <img class="picture" src="<%= @agent.image %>"><br>
+      <%= @agent.company %><br>
+      Email: <%= @agent.email %><br>
+      Mobile: <%= @agent.phone %><br>
+    </div>
+    <div id="map">
+
+    </div>
+
+  </div>
   <script>
     function initMap() {
       geocoder = new google.maps.Geocoder();
-      var input =  "<%= @property.address %>";
-      var address = "<%= @property.address %>";
+      var input =  "<%= @rent.address %>";
+      var address = "<%= @rent.address %>";
       geocoder.geocode( { 'address': address}, function(results, status) {
       if (status == 'OK') {
         map.setCenter(results[0].geometry.location);
@@ -20,7 +69,7 @@
             position: results[0].geometry.location
         });
       } else {
-        alert('Geocode was not successful for the following reason: ' + status);
+        console.log('Geocode was not successful for the following reason: ' + status);
       }
     });
       var map = new google.maps.Map(document.getElementById('map'), {zoom: 20, center: {lat: -25.344, lng: 131.036}});
@@ -28,5 +77,23 @@
   </script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkebnqIrf98MzWYEb0T2T0jd13MrkQNw4&callback=initMap"
   type="text/javascript"></script>
+  <script>
+    var slides = document.getElementsByClassName('slide');
+    var currentSlide = 0;
+    slides[0].className = "slide showing"
+    var slideInterval = setInterval(nextSlide(1),4000);
+    function nextSlide(x) {
+      slides[currentSlide].className = 'slide';
+      if (x == -1) {
+        currentSlide = (currentSlide-1)%slides.length;
+        if (currentSlide < 0) {
+          currentSlide = slides.length-1
+        }
+      } else {
+        currentSlide = (currentSlide+1)%slides.length;
+      }
+      slides[currentSlide].className = 'slide showing';
+    }
+    </script>
 </body>
 </html>

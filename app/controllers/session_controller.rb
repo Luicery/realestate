@@ -26,6 +26,7 @@ class SessionController < ApplicationController
     end
   end
   def destroy
+    session[:agent_id] = nil
     session[:user_id] = nil
     redirect_to "/properties"
   end

@@ -21,6 +21,7 @@ property2.agents << agent1
 property3.agents << agent1
 property4.agents << agent1
 
+Rent.destroy_all
 rent1 = Rent.create address:"25 Phar Lap Crescent, Takanini", title:"Executive Home In Prime Location", price:"400", bedrooms:4, bathrooms:2, parking:2, description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", area:1000
 rent2 = Rent.create address:"example", title:"example", price:"a Price", bedrooms:1, bathrooms:1, parking:1, description:"asd", area:100
 rent3 = Rent.create address:"example", title:"example", price:"a Price", bedrooms:1, bathrooms:1, parking:1, description:"asd", area:100
@@ -48,16 +49,20 @@ image14 = Image.create image:"https://www.phrealty.co.nz/photos/677,381/739982-0
 image15 = Image.create image:"https://www.phrealty.co.nz/photos/677,381/739982-08.jpg?c=1&pcol=cccccc"
 
 
-
 property1.images << image1 << image2 << image11 << image12 << image13 << image14 << image15
 property2.images << image3
 property3.images << image4
 property4.images << image5
-#
-# rent1.images << image6 << image10
-# rent2.images << image7
-# rent3.images << image8
-# rent4.images << image9
+
+Imagerent.destroy_all
+imagerent1 = Imagerent.create image:"https://www.phrealty.co.nz/photos/677,381/742660-04.jpg?c=1&pcol=cccccc"
+imagerent2 = Imagerent.create image:"https://www.phrealty.co.nz/photos/677,381/742660-04.jpg?c=1&pcol=cccccc"
+imagerent3 = Imagerent.create image:"https://www.phrealty.co.nz/photos/677,381/742660-04.jpg?c=1&pcol=cccccc"
+imagerent4 = Imagerent.create image:"https://www.phrealty.co.nz/photos/677,381/742660-04.jpg?c=1&pcol=cccccc"
+rent1.imagerents << imagerent1
+rent2.imagerents << imagerent2
+rent3.imagerents << imagerent3
+rent4.imagerents << imagerent4
 
 Watch.destroy_all
 watch1 = Watch.create agent_id:agent1.id

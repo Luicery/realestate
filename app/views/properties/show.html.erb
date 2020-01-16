@@ -11,21 +11,28 @@
     <div id="details">
       <div class="slideshow">
         <% @property.images.each do |x| %><img class="slide" src="<%= x.image %>"><% end %>
-        <a class="next" onclick="nextSlide(1)">&#10095;</a>
+        <a class="next hvr-icon-forward" onclick="nextSlide(1)">&#10095;</a>
         <a class="prev" onclick="nextSlide(-1)">&#10094;</a>
       </div>
-      <% if @current_user.present? == false %>
-        <span id="Watchlist"><h3><%= link_to "Add to Watchlist", watch_path(@property.id), method: "patch",  :id => "WatchlistLook"%></h3></span>
-      <% else %>
-        <% if (@current_user.watch.properties.find_by id:params[:id]).present? == false %>
-        <span id="Watchlist"><h3><%= link_to "Add to Watchlist", watch_path(@property.id), method: "patch",  :id => "WatchlistLook"%></h3></span>
+      <span id="Watchlist">
+        <% if @current_user.present? == false %>
+          <%= link_to "Add to Watchlist", watch_path(@property.id), method: "patch",  :id => "WatchlistLook"%>
         <% else %>
-        <span id="Watchlist"><h3><%= link_to "Remove from Watchlist", watch_path(@property.id), method: "delete",  :id => "WatchlistLook"%></h3></span>
+          <% if (@current_user.watch.properties.find_by id:params[:id]).present? == false %>
+            <%= link_to "Add to Watchlist", watch_path(@property.id), method: "patch",  :id => "WatchlistLook"%>
+          <% else %>
+            <%= link_to "Remove from Watchlist", watch_path(@property.id), method: "delete",  :id => "WatchlistLook"%>
+          <% end %>
         <% end %>
-      <% end %>
-      <% if @current_user.present? == true && (@property.agents.find @current_user.id).present? == true %>
-        <span id="Edit"><h3><%= link_to "Edit Property", edit_property_path %></span>
-      <% end %>
+        <% if @current_user.present? == false %>
+          <% if @current_user.present? == true && (@property.agents.find @current_user.id).present? == true %>
+            <%= link_to "Edit Property", edit_property_path, :id => "WatchlistLook" %>
+          <% end %>
+          <% if @current_user.present? == true && (@property.agents.find @current_user.id).present? == true %>
+            <%= link_to "Remove Property", property_path, method:"delete", :id => "WatchlistLook" %>
+          <% end %>
+        <% end %>
+      </span>
       <div id="Width_manipulate">
         <h2><%= @property.title %></h2>
         <h3><%= @property.address %><br>
@@ -62,7 +69,7 @@
             position: results[0].geometry.location
         });
       } else {
-        alert('Geocode was not successful for the following reason: ' + status);
+        console.log('Geocode was not successful for the following reason: ' + status);
       }
     });
       var map = new google.maps.Map(document.getElementById('map'), {zoom: 20, center: {lat: -25.344, lng: 131.036}});

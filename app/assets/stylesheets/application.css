@@ -34,9 +34,18 @@ header {
   background-color:rgba(238, 106, 150, 0.83);
   color:white;
 }
+a {
+  transition: color 500ms;
+}
+a:hover {
+  color: lightblue;
+}
 nav {
+  position: sticky;
+  position: -webkit-sticky;
   padding:8px;
   text-align:right;
+  top:0;
 }
 .header {
   text-decoration: none;

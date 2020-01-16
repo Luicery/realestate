@@ -1,4 +1,4 @@
-<div class="margin"
+<!-- <div class="margin" -->
 <%= form_for @property do |f| %>
   <div class="grid"><%= f.label "Title: " %><%= f.text_field :title %></div><br>
   <div class="grid"><%= f.label "Address: " %><%= f.text_field :address %></div><br>
@@ -10,6 +10,6 @@
   <div class="grid"><%= f.label "Description: " %><%= f.text_field :description %></div><br>
   <div class="grid"><%= f.label "Image Link: " %><%= f.text_field :images %></div>
   <br>
-  <div class="grid"><%= f.submit%><br>
+  <div class="grid"><%= f.submit "Update" %><br>
 <% end %>
-</div>
+<!-- </div> -->

@@ -1,0 +1,2 @@
+module ImagerentHelper
+end

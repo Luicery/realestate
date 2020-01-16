@@ -31,6 +31,9 @@ class PropertiesController < ApplicationController
   end
 
   def destroy
+    toDelete = Property.find params[:id]
+    toDelete.delete
+    redirect_to properties_path
   end
 
   def index

@@ -1,6 +1,7 @@
 // Place all the styles related to the Properties controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import url("hover-min.css");
 .logo {
   width:20px;
   height:20px;
@@ -14,7 +15,7 @@
 }
 #details {
   margin: 20px;
-  margin-top:5px;
+  margin-top:0px;
   margin-left:150px;
   margin-right: 150px;
 
@@ -62,8 +63,6 @@
   height: 250px;
 }
 #Watchlist {
-  text-align:right;
-  vertical-align:top;
   width:100%;
 }
 #Width_manipulate {
@@ -71,22 +70,25 @@
   display:inline-block;
 }
 #WatchlistLook {
+  float:right;
   text-decoration: none;
   color:white;
   background-color:rgba(238, 106, 150, 0.83);
   padding: 5px;
+  vertical-align:top;
+  font-size:20px;
+  margin-left:10px;
 }
 #map {
   width: 100%;
   height: 400px;
-  background-color: grey;
 }
 .slideshow {
-    position: relative;
-    height: 400px;
-    padding: 0px;
-    margin: 0px;
-    list-style-type: none;
+  position: relative;
+  height: 410px;
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
 }
 
 .slide {
@@ -122,3 +124,13 @@
   font-size:30px;
   opacity:1;
 }
+#map {
+  margin-top: 20px;
+}
+@keyframes movementprev {
+  from {left:-15px;}
+  to{left:-20px;}
+}
+// .prev:hover {
+//   transform:scale(1.1)
+// }
