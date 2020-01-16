@@ -7,6 +7,23 @@
   <title>Document</title>
 </head>
 <body>
-  <%= @watch.username %>
+  Watch list:
+  <div class="test">
+  <% @watch.properties.each do |x| %>
+  <div class="inline">
+    <div class="border">
+      <a href="<%= property_path(x.id) %>"><img class="prelude" src= "<%= x.images.first.image %>"></a><br>
+      <div class="align-left">
+      <%= x.title %><br>
+      <%= x.address %><br>
+      <img class="logo" src="https://c7.uihere.com/icons/990/543/695/bed-2bcc00ee5d9ffb499c5f90be3fc68ec0.png"><%= x.bedrooms %>
+      <img class="logo" src="https://www.shareicon.net/data/512x512/2016/10/22/846720_clean_512x512.png"><%= x.bathrooms %>
+      <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Car_with_Driver-Silhouette.svg/1221px-Car_with_Driver-Silhouette.svg.png"><%= x.parking %>
+      <img class="logo" src="https://static.thenounproject.com/png/560015-200.png"><%= x.area %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  </div>
 </body>
 </html>

@@ -14,7 +14,7 @@ class SessionController < ApplicationController
       session[:user_id] = user.id
       @current_user = user
       redirect_to user_path(user.id)
-      else if agent.present? && agent.authenticate(params[:password])
+    else if agent.present? && agent.authenticate(params[:password])
         session[:agent_id] = agent.id
         @current_user = agent
         redirect_to agent_path(agent.id)

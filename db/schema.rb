@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_14_021636) do
+ActiveRecord::Schema.define(version: 2020_01_15_131434) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,11 +31,17 @@ ActiveRecord::Schema.define(version: 2020_01_14_021636) do
     t.bigint "property_id", null: false
   end
 
+  create_table "agents_rents", id: false, force: :cascade do |t|
+    t.bigint "agent_id", null: false
+    t.bigint "rent_id", null: false
+  end
+
   create_table "images", force: :cascade do |t|
     t.text "image"
     t.integer "property_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "rent_id"
   end
 
   create_table "properties", force: :cascade do |t|
@@ -49,10 +55,30 @@ ActiveRecord::Schema.define(version: 2020_01_14_021636) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "area"
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "properties_watches", id: false, force: :cascade do |t|
     t.bigint "property_id", null: false
+    t.bigint "watch_id", null: false
+  end
+
+  create_table "rents", force: :cascade do |t|
+    t.string "address"
+    t.string "price"
+    t.integer "bedrooms"
+    t.integer "bathrooms"
+    t.integer "parking"
+    t.string "title"
+    t.text "description"
+    t.integer "area"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rents_watches", id: false, force: :cascade do |t|
+    t.bigint "rent_id", null: false
     t.bigint "watch_id", null: false
   end
 

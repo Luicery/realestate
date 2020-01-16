@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :check_current_user, except: [:new]
+  before_action :check_current_user, except: [:new, :create]
   before_action :check_if_logged_in, except: [:new]
   def new
     @user = User.new
@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create user_params
+    raise
     if @user.persisted?
       session[:user_id] = @user.id
       redirect_to user_path(@user.id)

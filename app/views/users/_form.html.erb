@@ -1,10 +1,10 @@
 <%= form_for @user do |f| %>
   <%= f.label "Name: " %><%= f.text_field :name %><br>
   <%= f.label "Email: " %><%= f.email_field :email %><br>
+  <%= f.label "Phone: " %><%= f.text_field :phone %><br>
   <%= f.label :password %><%= f.password_field :password %><br>
   <%= f.label :password_confirmation %><%= f.password_field :password_confirmation %><br>
   <br>
   Already have an account? <%= link_to "Login", login_path %><br>
-
   <%= f.submit "Create" %><br>
 <% end %>

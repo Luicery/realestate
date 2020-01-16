@@ -16,11 +16,11 @@
       <nav>
 
         <h3><span><%= link_to "Find Agents", agents_path, :class => "header" %></span>
-        <%# <!-- <span><%= link_to "Watchlist", watch_path(@current_user.id), :class => "header" %></span> --> %>
         <span><%= link_to "For Sale", properties_path, :class => "header" %></span>
-        <span><%= link_to "Placeholder", "", :class => "header" %></span>
-        <% if @current_user.present? %>
-          Welcome, <%= @current_user.username %>
+        <span><%= link_to "For Rent", rents_path, :class => "header" %></span>
+        <% if @current_user.present? && @current_user %>
+        <span><%= link_to "Watchlist", watch_path(@current_user.id), :class => "header" %></span>
+          Welcome, <%= @current_user.name %>
           <span><%= link_to "Logout", login_path, method: "delete", :class => "header" %></span>
         <% else %>
           <span><%= link_to "Login", login_path, :class => "header" %></span>
