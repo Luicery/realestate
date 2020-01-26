@@ -50,4 +50,4 @@ gem 'rails_12factor', group: :production
 gem "geocoder", "~> 1.6"
 gem 'gmaps4rails'
 gem "jquery-rails"
-gem 'rack-cors', '~> 0.3.1'
+gem 'rack-cors', '~> 1.0.5'
