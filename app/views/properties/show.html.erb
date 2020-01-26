@@ -78,10 +78,10 @@
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkebnqIrf98MzWYEb0T2T0jd13MrkQNw4&callback=initMap"
   type="text/javascript"></script>
   <script>
-    var slides = document.getElementsByClassName('slide');
-    var currentSlide = 0;
+    let slides = document.getElementsByClassName('slide');
+    let currentSlide = 0;
     slides[0].className = "slide showing"
-    var slideInterval = setInterval(nextSlide(1),4000);
+    let slideInterval = setInterval(nextSlide(1),4000);
     function nextSlide(x) {
       slides[currentSlide].className = 'slide';
       if (x == -1) {
@@ -94,6 +94,6 @@
       }
       slides[currentSlide].className = 'slide showing';
     }
-    </script>
+  </script>
 </body>
 </html>
